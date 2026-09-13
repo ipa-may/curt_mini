@@ -2,18 +2,18 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="curt_mini">
 
   <!-- path to package -->
-  <xacro:arg name="path" default="$(find curt_mini)" />
+  <xacro:arg name="path" default="$(find curt_mini_description)" />
   <xacro:arg name="use_sim_time" default="False" />
   <xacro:arg name="gazebo_controllers" default="$(arg path)/config/ros2_control_simulation.yaml" />
   <xacro:arg name="simulation" default="False" />
   <!-- Import ros2_control -->
-  <xacro:include filename="$(find curt_mini)/models/curt_mini/ros2_control.xacro" />
+  <xacro:include filename="$(find curt_mini_description)/models/curt_mini/ros2_control.xacro" />
 
   <!-- Include properties -->
-  <xacro:include filename="$(find curt_mini)/models/curt_mini/properties.xacro" />
+  <xacro:include filename="$(find curt_mini_description)/models/curt_mini/properties.xacro" />
 
   <!-- Include sensors -->
-  <xacro:include filename="$(find curt_mini)/models/curt_mini/sensors.xacro" />
+  <xacro:include filename="$(find curt_mini_description)/models/curt_mini/sensors.xacro" />
 
   <link name="base_link" />
 
@@ -177,7 +177,7 @@
 
   <!-- Import gazebo infos -->
   <xacro:if value="$(arg simulation)">
-    <xacro:include filename="$(find curt_mini)/models/curt_mini/gazebo.xacro" />
+    <xacro:include filename="$(find curt_mini_description)/models/curt_mini/gazebo.xacro" />
   </xacro:if>
 
 </robot>

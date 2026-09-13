@@ -11,13 +11,13 @@
 
   <depend>ipa_ros2_control</depend>
   <depend>joint_state_publisher</depend>
-  <depend>joy_linux</depend>
   <depend>robot_state_publisher</depend>
   <depend>rclcpp</depend>
   <depend>rclpy</depend>
   <depend>xacro</depend>
   <exec_depend>twist_mux</exec_depend>
-  <exec_depend>teleop_twist_joy</exec_depend>
+  <exec_depend>curt_mini_teleop</exec_depend>
+  <exec_depend>curt_mini_description</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

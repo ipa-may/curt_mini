@@ -1,43 +1,17 @@
-import os
-
-from ament_index_python.packages import get_package_share_directory
+# Compatibility wrapper for existing curt_mini joystick launch commands.
+# The implementation and configuration live in curt_mini_teleop.
 from launch import LaunchDescription
-from launch.actions import OpaqueFunction
-from launch_ros.actions import Node
-
-
-def launch_joystick(context, *args, **kwargs):
-    # initialize arguments
-    robot = "curt_mini"
-
-    filepath_config_joy = os.path.join(
-        get_package_share_directory(robot), "config", "joystick.yaml"
-    )
-
-    node_joy = Node(
-        namespace="joy_teleop",
-        package="joy_linux",
-        executable="joy_linux_node",
-        output="screen",
-        name="joy_node",
-        parameters=[filepath_config_joy],
-    )
-
-    node_teleop_twist_joy = Node(
-        namespace="joy_teleop",
-        package="teleop_twist_joy",
-        executable="teleop_node",
-        output="screen",
-        name="teleop_twist_joy_node",
-        parameters=[filepath_config_joy],
-    )
-
-    return [node_joy, node_teleop_twist_joy]
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    declared_arguments = []
-
-    return LaunchDescription(
-        declared_arguments + [OpaqueFunction(function=launch_joystick)]
-    )
+    return LaunchDescription([
+        IncludeLaunchDescription(PythonLaunchDescriptionSource(
+            PathJoinSubstitution([
+                FindPackageShare("curt_mini_teleop"), "launch", "joystick.launch.py"
+            ])
+        ))
+    ])

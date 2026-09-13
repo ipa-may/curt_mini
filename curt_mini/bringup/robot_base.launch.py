@@ -35,7 +35,7 @@ def launch_robot():
     twist_mux_path = PathJoinSubstitution([robot_dir, "config", "twist_mux.yaml"])
 
     # start the state publisher
-    urdf_path = PathJoinSubstitution([robot_dir, "models", robot, "robot.urdf.xacro"])
+    urdf_path = PathJoinSubstitution([FindPackageShare("curt_mini_description"), "models", robot, "robot.urdf.xacro"])
     robot_description = Command(
         [
             "xacro ",
@@ -64,7 +64,7 @@ def launch_robot():
             )
         ),
         launch_arguments={
-            "robot": robot,
+            "controllers_file": PathJoinSubstitution([robot_dir, "config", "ros2_control.yaml"]),
         }.items(),
     )
 
