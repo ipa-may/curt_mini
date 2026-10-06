@@ -18,7 +18,7 @@ mkdir -p <colcon_ws>/src
 cd <colcon_ws>/src 
 git clone https://github.com/ipa320/curt_mini.git
 cd ..
-vcs import --recursive src/ < src/curt_mini/curt_mini/curt_mini.repos
+vcs import --recursive src/ < src/curt_mini/curt_mini_bringup/curt_mini.repos
 vcs import --recursive src/ < src/curt_mini/ipa_ros2_control/ipa_ros2_control.repos
 rosdep install --from-path src --ignore-src
 colcon build
@@ -32,11 +32,11 @@ colcon build
 
 - `curt_mini_description` provides models, meshes, Xacro, and simulation configuration without the hardware driver dependency.
 - `curt_mini_teleop` provides the joystick launch and configuration.
-- `curt_mini` provides hardware bringup and depends on both packages and `ipa_ros2_control`.
+- `curt_mini_bringup` provides hardware bringup and depends on both packages and `ipa_ros2_control`.
 
-Existing `ros2 launch curt_mini robot_base.launch.py` and joystick launch commands remain available. The joystick launch is a compatibility wrapper around `curt_mini_teleop`. Model consumers must replace `$(find curt_mini)/models/...` and `package://curt_mini/models/...` with the corresponding `curt_mini_description` paths. Simulation configuration now lives in `curt_mini_description/config`. Joystick configuration lives in `curt_mini_teleop/config`.
+Launch the base with `ros2 launch curt_mini_bringup robot_base.launch.py`. The joystick launch in `curt_mini_bringup` is a wrapper around `curt_mini_teleop`. Older model references to `$(find curt_mini)/models/...` or `package://curt_mini/models/...` must use `curt_mini_description` instead. Simulation configuration lives in `curt_mini_description/config`. Joystick configuration lives in `curt_mini_teleop/config`.
 
-The driver launch accepts `controllers_file` for its controller manager configuration; existing direct invocations default to `curt_mini/config/ros2_control.yaml`.
+The driver launch accepts `controllers_file` for its controller manager configuration; direct invocations default to `curt_mini_bringup/config/ros2_control.yaml`.
 
 ## View the robot from another PC
 

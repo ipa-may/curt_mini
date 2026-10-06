@@ -52,7 +52,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "controllers_file",
             default_value=PathJoinSubstitution([
-                FindPackageShare("curt_mini"), "config", "ros2_control.yaml"
+                FindPackageShare("curt_mini_bringup"), "config", "ros2_control.yaml"
             ]),
             description="Controller manager configuration file.",
         )

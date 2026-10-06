@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>curt_mini</name>
+  <name>curt_mini_bringup</name>
   <version>0.0.0</version>
   <description>Configurations for Curt mini</description>
   <maintainer email="tobias.rainer.schaefle@ipa.fraunhofer.de">ipa-trs</maintainer>

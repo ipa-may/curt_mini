@@ -1,4 +1,4 @@
-# Compatibility wrapper for existing curt_mini joystick launch commands.
+# Compatibility wrapper for existing curt_mini_bringup joystick launch commands.
 # The implementation and configuration live in curt_mini_teleop.
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription

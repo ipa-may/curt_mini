@@ -30,7 +30,7 @@ def launch_robot():
     # initialize arguments
     robot = "curt_mini"
     sim_configuration = LaunchConfiguration("simulation")
-    robot_dir = FindPackageShare(robot)
+    robot_dir = FindPackageShare("curt_mini_bringup")
 
     twist_mux_path = PathJoinSubstitution([robot_dir, "config", "twist_mux.yaml"])
 

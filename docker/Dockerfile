@@ -18,7 +18,7 @@ COPY docker/dependencies.repos /tmp/dependencies.repos
 RUN mkdir -p src && vcs import --recursive src < /tmp/dependencies.repos
 
 # Build this checkout, including its updated package-relative robot meshes.
-COPY curt_mini/ src/curt_mini/curt_mini/
+COPY curt_mini_bringup/ src/curt_mini/curt_mini_bringup/
 COPY curt_mini_description/ src/curt_mini/curt_mini_description/
 COPY curt_mini_teleop/ src/curt_mini/curt_mini_teleop/
 COPY ipa_ros2_control/ src/curt_mini/ipa_ros2_control/
@@ -34,11 +34,11 @@ RUN apt-get update \
       --dependency-types exec \
     && rm -rf /var/lib/apt/lists/*
 
-# curt_mini launches openzen_driver but does not declare it as a package
+# curt_mini_bringup launches openzen_driver but does not declare it as a package
 # dependency, so request it explicitly alongside the base bringup package.
 RUN source /opt/ros/jazzy/setup.bash \
     && colcon build --merge-install \
-      --packages-up-to curt_mini openzen_driver \
+      --packages-up-to curt_mini_bringup openzen_driver \
       --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF
 
 # The entrypoint and interactive `docker compose exec ... bash` both source
@@ -51,4 +51,4 @@ COPY docker/entrypoint.sh /opt/curt_mini/entrypoint.sh
 RUN chmod 0755 /opt/curt_mini/entrypoint.sh
 
 ENTRYPOINT ["/opt/curt_mini/entrypoint.sh"]
-CMD ["ros2", "launch", "curt_mini", "robot_base.launch.py"]
+CMD ["ros2", "launch", "curt_mini_bringup", "robot_base.launch.py"]
