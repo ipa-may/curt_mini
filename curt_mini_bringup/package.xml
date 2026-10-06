@@ -4,7 +4,7 @@
   <name>curt_mini_bringup</name>
   <version>0.0.0</version>
   <description>Configurations for Curt mini</description>
-  <maintainer email="tobias.rainer.schaefle@ipa.fraunhofer.de">ipa-trs</maintainer>
+  <maintainer email="jonas.otto@ipa.fraunhofer.de">Jonas Otto</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

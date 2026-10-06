@@ -5,7 +5,7 @@
   <version>0.0.0</version>
   <description>Drivers for actuators and sensors. Implementation of ros2_control.</description>
 
-  <maintainer email="trs@fhg.de">ipa-trs</maintainer>
+  <maintainer email="jonas.otto@ipa.fraunhofer.de">Jonas Otto</maintainer>
 
   <license>TODO: License declaration</license>
 
