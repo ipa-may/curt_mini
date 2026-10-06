@@ -37,3 +37,21 @@ colcon build
 Existing `ros2 launch curt_mini robot_base.launch.py` and joystick launch commands remain available. The joystick launch is a compatibility wrapper around `curt_mini_teleop`. Model consumers must replace `$(find curt_mini)/models/...` and `package://curt_mini/models/...` with the corresponding `curt_mini_description` paths. Simulation configuration now lives in `curt_mini_description/config`. Joystick configuration lives in `curt_mini_teleop/config`.
 
 The driver launch accepts `controllers_file` for its controller manager configuration; existing direct invocations default to `curt_mini/config/ros2_control.yaml`.
+
+## View the robot from another PC
+
+The updated `robot_description` refers to meshes with
+`package://curt_mini_description/...` URIs. RViz resolves these URIs on the PC where RViz runs, so install the matching description package there and source its workspace before starting RViz. In this checkout, run:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+colcon build --packages-select curt_mini_description
+source install/setup.bash
+ros2 pkg prefix curt_mini_description
+rviz2
+```
+
+In RViz, add a RobotModel display, set its Description Topic to
+`/robot_description`, and select `base_link` as the Fixed Frame if no odometry frame is available. 
+
+Run the same package version on the robot and the RViz PC.

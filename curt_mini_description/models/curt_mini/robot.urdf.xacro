@@ -29,7 +29,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(arg path)/models/curt_mini/meshes/base_link.STL" />
+        <mesh filename="package://curt_mini_description/models/curt_mini/meshes/base_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1" />
@@ -38,7 +38,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(arg path)/models/curt_mini/meshes/base_link.STL" />
+        <mesh filename="package://curt_mini_description/models/curt_mini/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -57,7 +57,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(arg path)/models/curt_mini/meshes/wheel4_link.STL" />
+        <mesh filename="package://curt_mini_description/models/curt_mini/meshes/wheel4_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1" />
@@ -89,7 +89,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(arg path)/models/curt_mini/meshes/wheel1_link.STL" />
+        <mesh filename="package://curt_mini_description/models/curt_mini/meshes/wheel1_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1" />
@@ -121,7 +121,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(arg path)/models/curt_mini/meshes/wheel3_link.STL" />
+        <mesh filename="package://curt_mini_description/models/curt_mini/meshes/wheel3_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1" />
@@ -153,7 +153,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(arg path)/models/curt_mini/meshes/wheel2_link.STL" />
+        <mesh filename="package://curt_mini_description/models/curt_mini/meshes/wheel2_link.STL" />
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1" />
